@@ -1,0 +1,23 @@
+{
+  "name": "share_replays",
+  "version": "1.0.0",
+  "description": "A full js application to share webm replays between users.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrg20/share_replays.git"
+  },
+  "author": "Marc Ribalta Gené",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrg20/share_replays/issues"
+  },
+  "homepage": "https://github.com/mrg20/share_replays#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
