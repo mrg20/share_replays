@@ -2,10 +2,11 @@ var express = require('express');
 var path = require('path');
 var fs = require('fs');
 var router = express.Router();
+const crypto = require('crypto');
 
 /*API listing*/
-router.get('/video', function(req, res) {
-  var path = 'sample.webm';
+router.get('/video/:id', function(req, res) {
+  var path = `./videos/${req.params.id}.webm`;
   var stat = fs.statSync(path);
   var fileSize = stat.size;
   var range = req.headers.range;
@@ -44,13 +45,14 @@ router.post('/upload', function(req, res) {
 
   let sampleFile = req.files.sampleFile;
   console.log(req.files);
+  var fileName = crypto.randomBytes(20).toString('hex');
   // Use the mv() method to place the file somewhere on your server
-  sampleFile.mv('/videos/shasha.webm', function(err) {
+  sampleFile.mv(`./videos/${fileName}.webm`, function(err) {
     if (err)
       return res.status(500).send(err);
 
-    res.send('File uploaded! Url: shasha');
+    res.send(`File uploaded! Url: /video/${fileName}`);
   });
-}
+});
 
 module.exports = router;
