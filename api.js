@@ -13,7 +13,7 @@ router.get('/video', function(req, res) {
   if (range) {
     var parts = range.replace(/bytes=/, "").split("-");
     var start = parseInt(parts[0], 10);
-    var end = parts[1] 
+    var end = parts[1]
       ? parseInt(parts[1], 10)
       : fileSize-1;
     var chunksize = (end-start)+1;
@@ -36,5 +36,21 @@ router.get('/video', function(req, res) {
     fs.createReadStream(path).pipe(res);
   }
 });
+
+
+router.post('/upload', function(req, res) {
+  if (!req.files)
+    return res.status(400).send('No files were uploaded.');
+
+  let sampleFile = req.files.sampleFile;
+  console.log(req.files);
+  // Use the mv() method to place the file somewhere on your server
+  sampleFile.mv('/videos/shasha.webm', function(err) {
+    if (err)
+      return res.status(500).send(err);
+
+    res.send('File uploaded! Url: shasha');
+  });
+}
 
 module.exports = router;

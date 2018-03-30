@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/mrg20/share_replays#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0"
   }
 }
