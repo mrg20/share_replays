@@ -5,6 +5,10 @@ var router = express.Router();
 const crypto = require('crypto');
 
 /*API listing*/
+router.get('/', function(req, res){
+  res.sendFile('upload.html', {root: __dirname });
+});
+
 router.get('/video/:id', function(req, res) {
   var path = `./videos/${req.params.id}.webm`;
   var stat = fs.statSync(path);
