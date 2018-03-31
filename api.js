@@ -55,7 +55,7 @@ router.post('/upload', function(req, res) {
     if (err)
       return res.status(500).send(err);
 
-    res.send(`File uploaded! Url: /video/${fileName}`);
+    res.send(`File uploaded! Url: https://upload-webm.herokuapp.com/video/${fileName}`);
   });
 });
 
