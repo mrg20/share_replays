@@ -6,6 +6,6 @@ var app = express();
 app.use(fileUpload());
 app.use('/', api);
 
-app.listen(8000, function() {
+app.listen(process.env.PORT || 8000, function() {
 	console.log('Server ON');
 });
